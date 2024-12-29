@@ -1,10 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-
+import LeftSection from './components/LeftSection';
+import MidSection from './components/MidSection';
+import RightSection from './components/RightSection';
 function App() {
+
   return (
-    <div className="bg-blue-500 text-white p-4">
-      <h1 className="text-3xl font-bold">Hello, Tailwind CSS!</h1>
+    <div className='flex justify-around text-white bg-black'>
+      <LeftSection />
+      <MidSection />
+      <RightSection />
     </div>
   );
 }
