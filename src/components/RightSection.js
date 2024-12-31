@@ -1,6 +1,6 @@
 import React from 'react'
-
-export default function RightSection() {
+import Follow from './Follow'
+export default function RightSection(props) {
     return (
         <div className='w-3/12 bg-black  font-sans text-white '>
             <div className="fixed flex flex-col items-center space-y-4 mt-2">
@@ -17,57 +17,7 @@ export default function RightSection() {
                     <div > <a href="/" className="sub-btn  py-2 px-4 bg-blue-500 rounded-full font-semibold hover:bg-blue-600  focus:bg-blue-700 transition duration-300 ease-in-out "> Subscribe</a></div>
                 </div>
 
-                <ul className="follow   rounded-xl w-[90%]  space-y-4">
-                    <div className="sub font-bold text-lg">Who to Follow</div>
-                    <li className='flex justify-between items-center'>
-                        <div className="profile">
-                            <a href="/" className='flex justify-start'>
-                                <img src="https://pbs.twimg.com/profile_images/1800520500432515073/tMB_rJVh_400x400.jpg" alt="" className='w-10 h-10 rounded-full' />
-                                <div>
-                                    <div className="name font-bold ">PM Modi</div>
-                                    <div className="email text-gray-400 text-sm">@pm_modi</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="follow">
-                            <a href="/" className=" py-2 px-4 bg-white rounded-full font-bold hover:bg-slate-200 text-black focus:bg-slate-300 transition duration-300 ease-in-out">
-                                Follow
-                            </a>
-                        </div>
-                    </li>
-                    <li className='flex justify-between items-center'>
-                        <div className="profile">
-                            <a href="/" className='flex justify-start'>
-                                <img src="https://pbs.twimg.com/profile_images/1800520500432515073/tMB_rJVh_400x400.jpg" alt="" className='w-10 h-10 rounded-full' />
-                                <div>
-                                    <div className="name font-bold ">PM Modi</div>
-                                    <div className="email text-gray-400 text-sm">@pm_modi</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="follow">
-                            <a href="/" className=" py-2 px-4 bg-white rounded-full font-bold hover:bg-slate-200 text-black focus:bg-slate-300">
-                                Follow
-                            </a>
-                        </div>
-                    </li>
-                    <li className='flex justify-between items-center'>
-                        <div className="profile">
-                            <a href="/" className='flex justify-start'>
-                                <img src="https://pbs.twimg.com/profile_images/1800520500432515073/tMB_rJVh_400x400.jpg" alt="" className='w-10 h-10 rounded-full' />
-                                <div>
-                                    <div className="name font-bold ">PM Modi</div>
-                                    <div className="email text-gray-400 text-sm">@pm_modi</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="follow">
-                            <a href="/" className=" py-2 px-4 bg-white rounded-full font-bold hover:bg-slate-200 text-black focus:bg-slate-300">
-                                Follow
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+                <Follow data={props.data} />
 
 
             </div>
