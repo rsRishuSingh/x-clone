@@ -4,7 +4,7 @@ export default function MidSection() {
     return (
         <div className='w-6/12 bg-black  border-x-gray-700 border-x-[1px]'>
             <div className="mid-top ">
-                <div className="fixed top-0 w-6/12 bg-black"> <div className="menu flex justify-start border-b-gray-700 border-b-[1px] ">
+                <div className="fixed top-0 w-6/12 bg-black/50 backdrop-blur-lg pt-1"> <div className="menu flex justify-start border-b-gray-700 border-b-[1px] ">
                     <div className="options flex justify-evenly w-[95%] font-semibold">
                         <div className="for-you flex flex-col ">
                             <div>
