@@ -2,32 +2,78 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import React from 'react'
 import Foryou from './Foryou'
 import Trending from './Trending'
-
+import { useState } from "react";
 export default function MidSection(props) {
+
+    // const [currScreen, setCurrScreen] = useState(0);
+    // const underLineRef = useRef(null);
+
+    // const underLine = () => {
+    //     const parentLinks = document.querySelectorAll('.link');
+    //     const underLineElement = underLineRef.current;
+
+    //     if (currScreen === 0) {
+    //         setCurrScreen(1);
+    //         parentLinks[1]?.appendChild(underLineElement);
+    //     } else {
+    //         setCurrScreen(0);
+    //         parentLinks[0]?.appendChild(underLineElement);
+    //     }
+    // }
+
+    // let underLine = () => {
+    //     let child = document.getElementsByClassName('underLine')
+    //     child[0].classList.toggle('hidden')
+    //     child[1].classList.toggle('hidden')
+    //     //transition will not work
+    // }
+
+    // const [currScreen, setCurrScreen] = useState(1);
+    // let toggleState = () => {
+    //     if (currScreen) {
+    //         setCurrScreen(0)
+    //     }
+    //     else {
+    //         setCurrScreen(1)
+    //     }
+    //&& in the code
+    // }
+
+    const [activeLink, setActiveLink] = useState("/")
+    const toggler = (link) => {
+        setActiveLink(link);
+    };
     return (
         <BrowserRouter>
 
-            <div className='w-6/12 bg-black '>
+            <div className='w-[50vw] bg-black max-w-[960px]'>
                 <div className="mid-top ">
-                    <div className="fixed z-10 top-0 w-[50%] bg-black/50 backdrop-blur-lg pt-1 border-x-gray-700 border-x-[1px] ">
+                    <div className="fixed z-10 top-0 w-[50vw] max-w-[960px] bg-black/50 backdrop-blur-lg pt-1 border-x-gray-700 border-x-[1px] ">
                         <div className="menu flex justify-start border-b-gray-700 border-b-[1px] ">
                             <div className="options flex justify-evenly w-[95%] font-semibold">
                                 <div className="for-you flex flex-col  cursor-pointer">
-                                    <Link to="/">
+                                    <Link to="/" onClick={() => {
+
+                                        toggler("/")
+                                    }}>
 
                                         <div>
                                             For you
                                         </div>
-                                        <div className="h-1 bg-blue-500 w-14  rounded-full mt-1"></div>
+                                        <div className={`h-1 bg-blue-500 w-14  rounded-full mt-1 ${activeLink === '/' ? 'block' : 'hidden'} `}></div>
                                     </Link>
 
                                 </div>
                                 <div className="trending flex flex-col  cursor-pointer">
-                                    <Link to="/trending">
+                                    <Link to="/trending" onClick={() => {
+                                        toggler("trending")
+                                    }}>
                                         <div>
                                             Trending
                                         </div>
-                                        <div className="h-1 bg-blue-500 w-14  rounded-full mt-1"></div>
+
+
+                                        <div className={`h-1 bg-blue-500 w-14  rounded-full mt-1 ${activeLink === 'trending' ? 'block' : 'hidden'} `}></div>
 
                                     </Link>
 
@@ -36,10 +82,12 @@ export default function MidSection(props) {
                             <div className="settings ">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#CCCCCC"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" /></svg>
                             </div>
-                        </div></div>
+
+                        </div>
+                    </div>
 
 
-                    <div className="profile flex flex-col items-center mt-10  border-x-gray-700 border-x-[1px]">
+                    <div className="profile flex flex-col items-center mt-9 pt-1  border-x-gray-700 border-x-[1px]">
                         <div className="post-profile flex justify-evenly  mt-3 gap-1 w-full">
                             <div className="profile-pic ">
                                 <img src="https://yt3.ggpht.com/yti/ANjgQV_8_LrhdnGK03B0VyE3I4QocJAGWdyNesAn5BdA7x3Ofrg=s88-c-k-c0x00ffffff-no-rj" alt="" className='rounded-full w-9' />
@@ -69,7 +117,7 @@ export default function MidSection(props) {
                 </Routes>
 
 
-            </div>
-        </BrowserRouter>
+            </div >
+        </BrowserRouter >
     )
 }

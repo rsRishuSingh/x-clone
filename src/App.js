@@ -3,6 +3,7 @@ import LeftSection from './components/LeftSection';
 import MidSection from './components/MidSection';
 import RightSection from './components/RightSection';
 function App() {
+
   let svgCollection = [
     <> <svg viewBox="0 0 24 24" aria-hidden="true" className="  invert h-7 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e"><g><path d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913H9.14c.51 0 .929-.41.929-.913v-7.075h3.909v7.075c0 .502.417.913.928.913h6.165c.511 0 .929-.41.929-.913V7.904c0-.301-.158-.584-.408-.758z"></path></g></svg> <span >Home</span></>,
 
@@ -174,12 +175,17 @@ function App() {
       "post_count": "2950 posts"
     }
   ]
+  function fcx() {
+    console.log(`Viewport Width: ${window.innerWidth}px`);
+    console.log(`Viewport Height: ${window.innerHeight}px`);
 
+  }
   return (
-    <div className='flex justify-center text-white bg-black '>
+    <div className='flex justify-center text-white bg-black max-w-[1920px]'>
       <LeftSection svgCollection={svgCollection} />
       <MidSection data={data} trends={trends} />
       <RightSection data={data} />
+      {fcx()}
     </div>
   );
 }

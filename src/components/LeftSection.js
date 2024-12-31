@@ -1,13 +1,13 @@
 import React from 'react'
 
 export default function LeftSection(props) {
-    
+
 
     return (
 
 
 
-        <div className='w-[18%] mr-2  font-sans h-screen '>
+        <div className='w-[18vw] mr-2  font-sans h-screen  max-w-[345px]'>
             <div className='fixed '>
                 <div className="logo flex justify-center my-3">
                     <a href="/" className=' focus:font-bold'>
