@@ -93,8 +93,8 @@ function App() {
     },
     {
       profile_img: "https://pbs.twimg.com/profile_images/1863494920712937473/ikxUQZlS_400x400.jpg",
-      user_name: "David Auston",
-      user_handle: "@davidAuston",
+      user_name: "Elena",
+      user_handle: "@Elena",
       post_time_stamp: "4 Mon",
       post_content_para: "Hundreds of nasa videos to choose from. Free royalty free HD footage.",
       post_media: "https://cdn.pixabay.com/video/2021/05/07/73425-548173432_large.mp4",
@@ -105,9 +105,9 @@ function App() {
 
     },
     {
-      profile_img: "https://pbs.twimg.com/profile_images/1863494920712937473/ikxUQZlS_400x400.jpg",
-      user_name: "Elena",
-      user_handle: "@Elena",
+      profile_img: "https://pbs.twimg.com/profile_images/798632247762948096/ycGYVWvr_400x400.jpg",
+      user_name: "David Auston",
+      user_handle: "@davidAuston",
       post_time_stamp: "1 day",
       post_content_para: "Breathtakingly beautiful & enchanting. Posts, blogs & videos on Sikkim’s scenic beauty, it’s people, its art, culture, cuisine, & much more!",
       post_media: "https://pbs.twimg.com/media/FXUnPP3VUAAN7PG?format=jpg&name=large",
@@ -181,7 +181,7 @@ function App() {
 
   }
   return (
-    <div className='flex md:justify-between lg:justify-center text-white bg-black max-w-[1920px]'>
+    <div className='flex md:justify-between lg:justify-center text-white bg-black max-w-[1920px] font-sans'>
       <LeftSection svgCollection={svgCollection} />
       <MidSection data={data} trends={trends} />
       <RightSection data={data} />

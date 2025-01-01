@@ -7,9 +7,9 @@ export default function LeftSection(props) {
 
 
 
-        <div className='lg:w-[18vw] sm:mx-1 lg:mr-2 sm:w-[10vw] font-sans h-screen  max-w-[345px] flex flex-col lg:items-end sm:items-center '>
+        <div className='hidden  lg:w-[18vw]  sm:mx-1 lg:mr-2 sm:w-[10vw] font-sans h-screen  max-w-[345px] sm:flex flex-col lg:items-end sm:items-center '>
             <div className='fixed '>
-                <div className="logo flex justify-center  my-3 sm:my-10">
+                <div className="logo flex justify-center  lg:my-2 sm:my-10">
                     <a href="/" className=' focus:font-bold'>
                         <svg viewBox="0 0 24 24" aria-hidden="true" className="lg:scale-100 sm:scale-[1.5] invert h-9 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-1nao33i r-16y2uox r-8kz0gk"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
                     </a>
@@ -32,7 +32,7 @@ export default function LeftSection(props) {
                 </a></div>
 
                 <div >
-                    <a href="/" className="flex lg:justify-evenly sm:justify-center items-center hover:bg-gray-800  p-2 pr-3 my-2  hover:rounded-full fixed bottom-1 transition duration-300 ease-in-out">
+                    <a href="/" className="flex lg:justify-evenly sm:justify-center items-center hover:bg-gray-800  p-2 pr-2 my-2  hover:rounded-full fixed bottom-1 transition duration-300 ease-in-out mr-1">
                         <div className="profile">
                             <img src="https://yt3.ggpht.com/yti/ANjgQV_8_LrhdnGK03B0VyE3I4QocJAGWdyNesAn5BdA7x3Ofrg=s88-c-k-c0x00ffffff-no-rj" alt="" className='rounded-full w-10 lg:scale-100 sm:scale-125' />
                         </div>

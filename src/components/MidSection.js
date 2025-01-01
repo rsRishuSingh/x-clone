@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import React from 'react'
 import Foryou from './Foryou'
 import Trending from './Trending'
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 export default function MidSection(props) {
 
     // const [currScreen, setCurrScreen] = useState(0);
@@ -39,6 +39,24 @@ export default function MidSection(props) {
     //&& in the code
     // }
 
+
+    const [show, setShow] = useState(true);
+    let lastScroll = useRef(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll) {
+                setShow(false); // Hide on scroll down
+            } else {
+                setShow(true); // Show on scroll up
+            }
+            lastScroll.current = currentScroll;
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
     const [activeLink, setActiveLink] = useState("/")
     const toggler = (link) => {
         setActiveLink(link);
@@ -46,9 +64,10 @@ export default function MidSection(props) {
     return (
         <BrowserRouter>
 
-            <div className='lg:w-[50vw] md:w-[50vw] sm:w-[75vw] bg-black max-w-[960px]'>
+            <div className=' w-[98vw] lg:w-[50vw] md:w-[50vw] sm:w-[80vw] bg-black max-w-[960px]'>
                 <div className="mid-top ">
-                    <div className="fixed z-10 top-0 lg:w-[50vw] md:w-[50vw] sm:w-[75vw] max-w-[960px] bg-black/50 backdrop-blur-lg lg:pt-1 border-x-gray-700 border-x-[1px] pt-2">
+                    <div className={`fixed z-10 top-0 w-[98vw] lg:w-[50vw] md:w-[50vw] sm:w-[80vw] max-w-[960px] bg-black/50 backdrop-blur-lg lg:pt-1 border-x-gray-700 border-x-[1px] pt-2 ${show ? "translate-y-0" : "-translate-y-full"
+                        }`}>
                         <div className="menu flex justify-start border-b-gray-700 border-b-[1px] ">
                             <div className="options flex justify-evenly w-[95%] font-semibold">
                                 <div className="for-you flex flex-col  cursor-pointer">
@@ -57,7 +76,7 @@ export default function MidSection(props) {
                                         toggler("/")
                                     }}>
 
-                                        <div>
+                                        <div className="font-extrabold sm:font-semibold">
                                             For you
                                         </div>
                                         <div className={`h-1 bg-blue-500 w-14  rounded-full mt-1 ${activeLink === '/' ? 'block' : 'hidden'} `}></div>
@@ -68,7 +87,7 @@ export default function MidSection(props) {
                                     <Link to="/trending" onClick={() => {
                                         toggler("trending")
                                     }}>
-                                        <div>
+                                        <div className="font-extrabold sm:font-semibold">
                                             Trending
                                         </div>
 
@@ -105,7 +124,7 @@ export default function MidSection(props) {
                                 <svg className='cursor-pointer' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5985E1"><path d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z" /></svg>
                                 <svg className='cursor-pointer' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5985E1"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" /></svg>
                             </div>
-                            <div > <a href="/" className="block hover:bg-blue-600 focus:bg-slate-100  w-15 px-4 m-1 p-1 text-black bg-blue-500 rounded-3xl text-center font-semibold text-lg transition duration-300 ease-in-out">Post</a></div>
+                            <div > <a href="/" className="block hover:bg-blue-600 focus:bg-slate-100  w-15 px-4 m-1 p-1 text-black bg-blue-500 rounded-3xl text-center md:font-semibold text-lg transition duration-300 ease-in-out sm:font-normal font-extrabold hover:underline">Post</a></div>
                         </div>
                     </div>
 
@@ -115,7 +134,29 @@ export default function MidSection(props) {
                     <Route path="/trending" element={<Trending trends={props.trends} />} />
 
                 </Routes>
+                <div className="status-bar block sm:hidden">
+                    <div className={`options flex justify-around fixed bottom-0 z-20 transition-transform w-[98vw] bg-black py-2 rounded-t-full ${show ? "translate-y-0" : "translate-y-full"
+                        }`}>
 
+                        <div className="p-1 px-2 cursor-pointer hover:bg-gray-700 rounded-full ">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" className="  w-[24px]  invert h-7 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e"><g><path d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913H9.14c.51 0 .929-.41.929-.913v-7.075h3.909v7.075c0 .502.417.913.928.913h6.165c.511 0 .929-.41.929-.913V7.904c0-.301-.158-.584-.408-.758z"></path></g></svg>
+                        </div>
+                        <div className="p-1 px-2 cursor-pointer hover:bg-gray-700 rounded-full ">
+
+                            <svg viewBox="0 0 24 24" aria-hidden="true" className="  w-[24px]  invert  h-7 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e"><g><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"></path></g></svg>
+                        </div>
+                        <div className="p-1 px-2 cursor-pointer hover:bg-gray-700 rounded-full ">
+
+                            <svg viewBox="0 0 24 24" aria-hidden="true" className="  w-[24px] invert h-7 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e"><g><path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"></path></g></svg>
+                        </div>
+                        <div className="p-1 px-2 cursor-pointer hover:bg-gray-700 rounded-full ">
+
+                            <svg viewBox="0 0 24 24" aria-hidden="true" className="w-[24px] invert  h-7 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e"><g><path d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"></path></g></svg>
+                        </div>
+
+
+                    </div>
+                </div>
 
             </div >
         </BrowserRouter >
