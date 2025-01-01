@@ -46,9 +46,9 @@ export default function MidSection(props) {
     return (
         <BrowserRouter>
 
-            <div className='w-[50vw] bg-black max-w-[960px]'>
+            <div className='lg:w-[50vw] md:w-[50vw] sm:w-[75vw] bg-black max-w-[960px]'>
                 <div className="mid-top ">
-                    <div className="fixed z-10 top-0 w-[50vw] max-w-[960px] bg-black/50 backdrop-blur-lg pt-1 border-x-gray-700 border-x-[1px] ">
+                    <div className="fixed z-10 top-0 lg:w-[50vw] md:w-[50vw] sm:w-[75vw] max-w-[960px] bg-black/50 backdrop-blur-lg lg:pt-1 border-x-gray-700 border-x-[1px] pt-2">
                         <div className="menu flex justify-start border-b-gray-700 border-b-[1px] ">
                             <div className="options flex justify-evenly w-[95%] font-semibold">
                                 <div className="for-you flex flex-col  cursor-pointer">
@@ -87,17 +87,17 @@ export default function MidSection(props) {
                     </div>
 
 
-                    <div className="profile flex flex-col items-center mt-9 pt-1  border-x-gray-700 border-x-[1px]">
-                        <div className="post-profile flex justify-evenly  mt-3 gap-1 w-full">
-                            <div className="profile-pic ">
-                                <img src="https://yt3.ggpht.com/yti/ANjgQV_8_LrhdnGK03B0VyE3I4QocJAGWdyNesAn5BdA7x3Ofrg=s88-c-k-c0x00ffffff-no-rj" alt="" className='rounded-full w-9' />
+                    <div className="profile flex flex-col items-center lg:mt-9 lg:pt-1 mt-10 pt-1 border-x-gray-700 border-x-[1px]">
+                        <div className="post-profile flex lg:justify-center justify-around mt-3 gap-1 gap-x-2 w-full">
+                            <div className="profile-pic lg:block flex justify-center items-center w-fit">
+                                <img src="https://yt3.ggpht.com/yti/ANjgQV_8_LrhdnGK03B0VyE3I4QocJAGWdyNesAn5BdA7x3Ofrg=s88-c-k-c0x00ffffff-no-rj" alt="" className='rounded-full w-9 scale-125 lg:scale-100' />
                             </div>
-                            <div className='textArea w-[80%]'>
+                            <div className='textArea w-[75%] lg:h-[10vh] max-h-[100px] h-[80px]'>
                                 <textarea name="post" id="post_id" placeholder='What is happening?!' className='bg-black text-white outline-none w-full text-lg' ></textarea>
                             </div>
                         </div>
                         <div className="separator h-[1px] bg-gray-700 w-[90%] "></div>
-                        <div className="post-options flex justify-around w-full m-1 p-1 pb-2 border-b-gray-700 border-b-[1px] ">
+                        <div className="post-options flex justify-around w-full m-1 p-1 pb-2 lg:m-1 lg:p-1 lg:pb-2 border-b-gray-700 border-b-[1px] ">
                             <div className="svg-collection flex justify-evenly items-center gap-x-5">
                                 <svg className='cursor-pointer' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5985E1"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm40-80h480L570-480 450-320l-90-120-120 160Zm-40 80v-560 560Z" /></svg>
                                 <svg className='cursor-pointer' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5985E1"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm240-160h60v-240h-60v240Zm-160 0h80q17 0 28.5-11.5T400-400v-80h-60v60h-40v-120h100v-20q0-17-11.5-28.5T360-600h-80q-17 0-28.5 11.5T240-560v160q0 17 11.5 28.5T280-360Zm280 0h60v-80h80v-60h-80v-40h120v-60H560v240ZM200-200v-560 560Z" /></svg>

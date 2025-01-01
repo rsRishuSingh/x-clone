@@ -8,9 +8,9 @@ export default function Foryou(props) {
                     return (
                         <div className='post flex justify-center gap-x-1 mb-3 p-2 border-b-gray-700 border-b-[1px]' key={element.user_name} >
 
-                            <div className="user-img w-[10%] flex justify-center items-start"><img className='rounded-full w-11 ' src={element.profile_img} alt="" />
+                            <div className="user-img w-[10%] flex justify-center items-start"><img className='rounded-full w-11 scale-110 lg:scale-100 ' src={element.profile_img} alt="" />
                             </div>
-                            <div className="user-post w-[80%] ">
+                            <div className="user-post w-[80%] px-1">
                                 <div className="user-name flex justify-between">
                                     <div className='name-details'>
 
