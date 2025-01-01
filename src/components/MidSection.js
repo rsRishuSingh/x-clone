@@ -41,12 +41,13 @@ export default function MidSection(props) {
 
 
     const [show, setShow] = useState(true);
+    // const [Width, setWidth] = useState(screen.width);
     let lastScroll = useRef(0);
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
-            if (currentScroll > lastScroll) {
+            if (currentScroll > lastScroll.current) {
                 setShow(false); // Hide on scroll down
             } else {
                 setShow(true); // Show on scroll up
@@ -57,6 +58,7 @@ export default function MidSection(props) {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
     const [activeLink, setActiveLink] = useState("/")
     const toggler = (link) => {
         setActiveLink(link);
@@ -106,9 +108,9 @@ export default function MidSection(props) {
                     </div>
 
 
-                    <div className="profile flex flex-col items-center lg:mt-9 lg:pt-1 mt-10 pt-1 border-x-gray-700 border-x-[1px]">
-                        <div className="post-profile flex lg:justify-center justify-around mt-3 gap-1 gap-x-2 w-full">
-                            <div className="profile-pic lg:block flex justify-center items-center w-fit">
+                    <div className="profile flex flex-col items-center  mt-1 pt-10 border-x-gray-700 border-x-[1px]">
+                        <div className="post-profile flex lg:justify-center justify-around mt-3 gap-1 gap-x-2 w-full ">
+                            <div className="profile-pic lg:block flex justify-center items-start sm:items-center w-fit">
                                 <img src="https://yt3.ggpht.com/yti/ANjgQV_8_LrhdnGK03B0VyE3I4QocJAGWdyNesAn5BdA7x3Ofrg=s88-c-k-c0x00ffffff-no-rj" alt="" className='rounded-full w-9 scale-125 lg:scale-100' />
                             </div>
                             <div className='textArea w-[75%] lg:h-[10vh] max-h-[100px] h-[80px]'>
@@ -129,10 +131,11 @@ export default function MidSection(props) {
                     </div>
 
                 </div>
-                <Routes>
+                <Routes >
                     <Route path="/" element={<Foryou data={props.data} />} />
                     <Route path="/trending" element={<Trending trends={props.trends} />} />
-
+                    {/* hook.js:608 No routes matched location "/build/index.html"  */}
+                    {/* serve -s build */}
                 </Routes>
                 <div className="status-bar block sm:hidden">
                     <div className={`options flex justify-around fixed bottom-0 z-20 transition-transform w-[98vw] bg-black py-2 rounded-t-full ${show ? "translate-y-0" : "translate-y-full"
