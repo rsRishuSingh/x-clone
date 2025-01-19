@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# X-clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is available at (https://x-cl0ne.netlify.app/).
 
 ## Available Scripts
 
